@@ -10,7 +10,9 @@ Template.hello.onCreated(function helloOnCreated() {
 
 Template.hello.helpers({
   getPeople() {
-    return People.publicFields;
+    return People.find({
+      fields: People.publicFields
+    });
   },
   counter() {
     return Template.instance().counter.get();

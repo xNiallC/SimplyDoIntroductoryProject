@@ -13,9 +13,9 @@
   <input type="tel" name="age" placeholder="Age"/>
   <button>Submit Data</button>
   <ul>
-    {{#each People}}
+    {{#each person in getPeople}}
       <li>
-        {{this}}
+        {{person.name}}, {{person.age}}
       </li>
     {{/each}}
   </ul>
