@@ -7,6 +7,10 @@ Meteor.startup(() => {
     // Add the person with the 'name' and 'age' parameters from the web page to the MongoDB instance
     addPerson(name, age) {
       People.insert({name: name, age: age});
+    },
+    // Delete using the provided ID
+    deletePerson(_id) {
+      People.remove({_id: _id});
     }
   })
   Meteor.publish('allPeople', function() {

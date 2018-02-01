@@ -1,5 +1,6 @@
 <head>
   <title>Staff Records</title>
+  <link rel="stylesheet" type="text/css"  href="main.css" />
 </head>
 
 <body>
@@ -9,14 +10,38 @@
 </body>
 
 <template name="hello">
-  <input type="text" name="name" placeholder="Name"/>
-  <input type="tel" name="age" placeholder="Age"/>
-  <button>Submit Data</button>
-  <ul>
+  <input class="submitData" type="text" name="name" placeholder="Name"/>
+  <input class="submitData" type="tel" name="age" placeholder="Age"/>
+  <button class="submitData">Submit Data</button>
+  <br /><br />
+  <table>
+    <tr style="width: 100%">
+      <th>
+        ID
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Age
+      </th>
+    </tr>
+    <!-- For each person in the collection, load their name and age -->
     {{#each person in getPeople}}
-      <li>
-        {{person.name}}, {{person.age}}
-      </li>
+    <tr>
+      <td>
+        {{person._id}}
+      </td>
+      <td>
+        {{person.name}}
+      </td>
+      <td>
+        {{person.age}}
+      </td>
+    </tr>
     {{/each}}
-  </ul>
+  </table>
+  <br />
+  <input class="deleteData" type="text" name="id" placeholder="ID"/>
+  <button class="deleteData">Delete Data</button>
 </template>
